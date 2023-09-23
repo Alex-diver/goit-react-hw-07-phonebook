@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectFilter } from 'redux/selectors';
 import { setFilter } from 'redux/filtersSlice';
 import {
+  ContactsTitle,
   FormStyled,
   LabelStyled,
   SpanStyled,
@@ -14,6 +15,7 @@ export const Filter = () => {
 
   return (
     <FormStyled>
+      <ContactsTitle>Contacts</ContactsTitle>
       <LabelStyled>
         <SpanStyled>Find contacts by name</SpanStyled>
         <InputStyled

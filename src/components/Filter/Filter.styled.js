@@ -1,5 +1,13 @@
 import { styled } from 'styled-components';
 
+export const ContactsTitle = styled.h2`
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin: 10px 10px;
+`;
+
 export const FormStyled = styled.div`
   display: flex;
   align-items: center;

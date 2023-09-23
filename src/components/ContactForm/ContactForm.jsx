@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
+  TitleStyled,
   FormStyled,
   LabelStyled,
   SpanStyled,
@@ -50,6 +51,7 @@ export const ContactForm = () => {
   };
   return (
     <div>
+      <TitleStyled>Phonebook</TitleStyled>
       <FormStyled onSubmit={handleSubmit}>
         <LabelStyled>
           <SpanStyled>Name </SpanStyled>

@@ -7,6 +7,15 @@ export const FormStyled = styled.form`
   flex-direction: column;
   gap: 10px;
 `;
+
+export const TitleStyled = styled.h1`
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 10px 10px;
+`;
+
 export const LabelStyled = styled.label`
   display: inline-grid;
   justify-content: space-evenly;
