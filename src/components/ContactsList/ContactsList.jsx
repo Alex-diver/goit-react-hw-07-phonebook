@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts, getFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/contactsSlice';
+import { selectContacts, selectFilter } from 'redux/selectors';
+import { deleteContact, fetchContacts } from 'redux/operations';
 import {
   ItemStyled,
   NameStyled,
@@ -8,11 +8,16 @@ import {
   DeleteButton,
   ListStyled,
 } from './ContactsList.styled';
+import { useEffect } from 'react';
 
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
 
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -21,10 +26,10 @@ export const ContactList = () => {
   return (
     <div>
       <ListStyled>
-        {filteredContacts.map(({ id, name, number }) => (
+        {filteredContacts.map(({ id, name, phone }) => (
           <ItemStyled key={id}>
             <NameStyled>{name} :</NameStyled>
-            <NumberStyled>{number}</NumberStyled>
+            <NumberStyled>{phone}</NumberStyled>
             <DeleteButton onClick={() => dispatch(deleteContact(id))}>
               Delete
             </DeleteButton>
